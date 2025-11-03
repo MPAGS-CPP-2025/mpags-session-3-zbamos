@@ -1,23 +1,68 @@
 #include <iostream>
 int main()
 {
-    // This is a comment
-    /* This comment
-    is Mulitline! */
-    constexpr int a{4};          // bad!
-    constexpr double b{1.2*a}; 
-    double c{3.4};
+    char in_char{'x'};
+    std::string out_str{""};
 
-    //a = 43;
-    //b = 2.2;
+    std::cout << "Please enter some text (Ctrl+D to end):" << std::endl;
 
-    c = a*b;
+    // Take each letter from user input and in each case:
+    while (std::cin >> in_char) 
+    {
+        // - Convert to upper case
+        if (std::isalpha(in_char)) 
+        {
+            out_str += std::toupper(in_char);
+        }
 
-    std::cout << c << std::endl;
-   
-    std::string msg {"Hello"};
+        // - Change numbers to words
+        if (std::isdigit(in_char)) 
+        {
+            switch (in_char) 
+            {
+                case '0':
+                    out_str += "ZERO";
+                    break;
+                case '1':
+                    out_str += "ONE";
+                    break;
+                case '2':
+                    out_str += "TWO";
+                    break;
+                case '3':
+                    out_str += "THREE";
+                    break;
+                case '4':
+                    out_str += "FOUR";
+                    break;
+                case '5':
+                    out_str += "FIVE";
+                    break;
+                case '6':
+                    out_str += "SIX";
+                    break;
+                case '7':
+                    out_str += "SEVEN";
+                    break;
+                case '8':
+                    out_str += "EIGHT";
+                    break;
+                case '9':
+                    out_str += "NINE";
+                    break;
+                default:
+                    break;
+            }
+        }
+        else
+        {
+        // leaving other chars unchanged
+        out_str += in_char;
+        }
+    
 
-    std::cout << msg[4] <<  "\n";
-
+        // print out the new string
+    }
+    std::cout << out_str << std::endl;
     return 0;
 }
