@@ -1,0 +1,68 @@
+#include <iostream>
+int main()
+{
+    char in_char{'x'};
+    std::string out_str{""};
+
+    std::cout << "Please enter some text (Ctrl+D to end):" << std::endl;
+
+    // Take each letter from user input and in each case:
+    while (std::cin >> in_char) 
+    {
+        // - Convert to upper case
+        if (std::isalpha(in_char)) 
+        {
+            out_str += std::toupper(in_char);
+        }
+
+        // - Change numbers to words
+        if (std::isdigit(in_char)) 
+        {
+            switch (in_char) 
+            {
+                case '0':
+                    out_str += "ZERO";
+                    break;
+                case '1':
+                    out_str += "ONE";
+                    break;
+                case '2':
+                    out_str += "TWO";
+                    break;
+                case '3':
+                    out_str += "THREE";
+                    break;
+                case '4':
+                    out_str += "FOUR";
+                    break;
+                case '5':
+                    out_str += "FIVE";
+                    break;
+                case '6':
+                    out_str += "SIX";
+                    break;
+                case '7':
+                    out_str += "SEVEN";
+                    break;
+                case '8':
+                    out_str += "EIGHT";
+                    break;
+                case '9':
+                    out_str += "NINE";
+                    break;
+                default:
+                    break;
+            }
+        }
+        else
+        {
+        // leaving other chars unchanged
+        out_str += in_char;
+        }
+    
+
+        // print out the new string
+    }
+    std::cout << out_str << std::endl;
+    return 0;
+}
